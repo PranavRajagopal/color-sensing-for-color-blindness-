@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+import csv
 
 cap = cv2.VideoCapture(0)  
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)  
@@ -36,3 +36,13 @@ while True:
         break
 cap.release()
 cv2.destroyAllWindows()
+
+
+
+
+with open('color_data.csv', mode='w') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Color', 'Intensity'])
+    writer.writerow(['Blue', blue_intensity])
+    writer.writerow(['Other', other_intensity])
+
