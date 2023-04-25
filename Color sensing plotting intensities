@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.set_xlabel('Time (s)')
+ax.set_ylabel('Intensity')
+ax.set_title('Color Intensity Over Time')
+blue_plot, = ax.plot([], [], label='Blue')
+other_plot, = ax.plot([], [], label='Other')
+
+
+def update_plot():
+    # 
+
+    current_time = time.time() - start_time
+    blue_intensity = calculate_intensity(blue_pixels)
+    other_intensity = calculate_intensity(other_pixels)
+    blue_plot.set_data([current_time], [blue_intensity])
+    other_plot.set_data([current_time], [other_intensity])
+    ax.set_xlim([max(0, current_time - 10), current_time])
+    fig.canvas.draw()
+    fig.canvas.manager.window.after(1000, update_plot)
+
+start_time = time.time()
+update_plot()
+plt.legend()
+plt.show()
