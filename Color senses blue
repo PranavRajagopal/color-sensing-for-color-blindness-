@@ -40,9 +40,4 @@ cv2.destroyAllWindows()
 
 
 
-with open('color_data.csv', mode='w') as file:
-    writer = csv.writer(file)
-    writer.writerow(['Color', 'Intensity'])
-    writer.writerow(['Blue', blue_intensity])
-    writer.writerow(['Other', other_intensity])
 
